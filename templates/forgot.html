@@ -1,0 +1,38 @@
+{% extends "accountBase.html" %}
+{% block title %}Forgot{% endblock %}
+
+{% block head %}
+
+{% load static %}
+	<link href="{% static 'styles/accountStyle.css'%}" rel="stylesheet">
+{% endblock %}
+{% block content %}
+
+<section class="Form my-5 mx-5">
+		  <div class="container">
+
+		  	<div class="row no-gutters">
+			  <div class="col-lg-5">
+					<img src="{% static 'img/login.png' %}" class="img-fluid py-4">
+				</div>
+
+			  <div class="col-lg-7 px-5 pt-3">
+				  <h2 class="font-weight-bold py-3">Tweetolytics</h2>
+				  <h5>Enter your register email</h5>
+					<form method="post" action="">
+						{% csrf_token%}
+
+				  		<div class="form-row">
+							 <div class="col-lg-7">
+							  	<input type="text" name="username"  placeholder="Enter Your Email" class="form-control my-2 p-4">
+							</div>
+						</div>
+
+						<p class="mb-5"> <a href="{% url 'register' %}">Login Here</a></p>
+
+				    </form>
+				</div>
+			  </div>
+		  </div>
+	  </section>
+{% endblock %}

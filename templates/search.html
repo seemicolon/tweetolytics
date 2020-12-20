@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}Search{% endblock %}
+
+{% block head %}
+{% load static %}
+	<link href="{% static 'styles/searchstyle.css'%}" rel="stylesheet">
+{% endblock %}
+{% block content%}
+     <div class="container">
+		<h3 class="mt-5">Enter Keyword to Analyze</h3>
+	</div>
+	<div class="container">
+		<div class="row">
+  			<div class="col mt-4">
+                 <form method="post" action="home">
+                     {% csrf_token %}
+                    <input class="form-control form-control-lg" name="search_field" type="text" placeholder="Quaid Day, QuaidDay, #QuaidDay" required>
+                    <button type="submit" name="submit_b" value="submit_b" class="btn btn-primary btn-lg mt-2">Analyze</button>
+                 </form>
+            </div>
+		</div>
+	</div>
+	<div class="container">
+	<h4 class="mt-5">Live Twitter Trends in Pakistan</h4>
+	<table class="table table-bordered table-striped mt-4">
+  <thead>
+    <tr>
+      <th scope="col">No.</th>
+      <th scope="col">Trends</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for t in trend %}
+
+    <tr>
+        <th scope="row">{{forloop.counter}}</th>
+        <td>{{ t }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+	</div>
+{% endblock %}

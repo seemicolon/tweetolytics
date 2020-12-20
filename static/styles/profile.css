@@ -1,0 +1,41 @@
+.table-wrapper {
+    width: 700px;
+    margin: 30px auto;
+    background: #fff;
+    padding: 20px;
+	height: 500px;
+	box-shadow: 0px 0px 8px 2px #ccc;
+
+
+}
+.table-title {
+    padding-bottom: 10px;
+    margin: 0 0 10px;
+}
+.table-title h2 {
+    margin: 6px 0 0;
+    font-size: 22px;
+}
+.btn-1{
+
+  border: none;
+  outline: none;
+  height: 50px;
+  width:100px;
+  color: #FFFEFE;
+  background-color: #4D7CFE;
+  font-weight: bold;
+
+}
+.btn-1:hover{
+  background: #FFFEFE;
+  border: 2px solid;
+  color: #4D7CFE;
+  font-weight: bold;
+
+
+}
+
+.container label{
+  font-weight:bold;
+}

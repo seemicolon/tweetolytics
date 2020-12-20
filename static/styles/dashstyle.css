@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+/*  font-family: 'Josefin Sans', sans-serif;*/
+
+}
+
+body{
+   background-color:#F1F5F7 !important;
+   }
+
+.wrapper{
+  display: flex;
+  position: relative;
+	top: 0px;
+}
+
+.wrapper .sidebar{
+  width: 250px;
+  height: 100%;
+  background: #FFFEFE;
+  position: fixed;
+  box-shadow: 6px 0px 10px -5px #ccc;
+
+}
+.heading{
+	display: flex;
+    position: relative;
+	width: 250px;
+	top: 0;
+	padding: 0px 20px 20px 40px;
+	background-color: #4D7CFE;
+	color: #FFFEFE;
+/*	text-transform: uppercase;*/
+  	text-align: center;
+}
+
+.heading h3{
+	padding-top: 20px;
+}
+
+
+.wrapper .sidebar ul li{
+  padding: 15px;
+  border-bottom: 1px solid #bdb8d7;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  border-top: 1px solid rgba(255,255,255,0.05);
+/*	border-left: 4px solid #4D7CFE;*/
+/*	display: block;*/
+/*	position: relative;*/
+}
+
+.wrapper .sidebar ul li a{
+	padding-left: 15px;
+    color: #474545;
+	font-weight: normal;
+}
+
+.wrapper .sidebar ul li a .fas{
+  width: 25px;
+}
+
+.wrapper .sidebar ul li:hover{
+  background-color: #F2F6FF;
+/*	color: #4D7CFE;*/
+	border-left: 4px solid #4D7CFE;
+
+}
+
+.wrapper .sidebar ul li:hover a{
+  color: #4D7CFE;
+  text-decoration: none;
+/*display: block;*/
+
+
+}
+
+.wrapper .main_content{
+  width: 100%;
+
+
+}
+
+.wrapper .main_content .header{
+  padding: 28.5px;
+  background: #FFFEFE;
+  color: #474545;
+box-shadow: 0px 0px 10px 0px #ccc;
+ margin-left: 250px !important;
+/*  border-bottom: 1px solid #474545;*/
+}
+
+.wrapper .main_content .info{
+  margin : 20px;
+  color: #474545;
+  line-height: 25px;
+    margin-left: 250px !important;
+
+}
+
+.wrapper .main_content .info div{
+  margin-bottom: 20px;
+}
+
+@media (max-height: 500px){
+  .social_media{
+    display: none !important;
+  }
+}
+ul li a span{
+  position: absolute;
+  padding-left: 110px;
+	padding-top: 5px;
+}
+.sub-menu{
+	padding-left:30px;
+	display:none;
+	list-style:none;
+
+
+}
+
+.sidebar li.active ul{
+	display:block;
+}

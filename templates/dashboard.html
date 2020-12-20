@@ -1,0 +1,248 @@
+{% extends "dbase.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block head %}
+
+{% load static %}
+	<link href="{% static 'styles/dashboard.css'%}" rel="stylesheet">
+
+{% endblock %}
+
+{% block content %}
+
+<div class="charts">
+	<div class="container">
+	<div class="row ">
+		<div class=" col-sm-4">
+			<div class="bar-chart">
+				<canvas id="barChart" width="50" height="50"></canvas>
+			</div>
+		</div>
+		<div class=" col-sm-4">
+			<div class="bar-chart">
+				<canvas id="p-Chart" width="50" height="50"></canvas>
+			</div>
+		</div>
+		<div class=" col-sm-4">
+			<div class="bar-chart">
+				<canvas id="r-Chart" width="50" height="50"></canvas>
+			</div>
+		</div>
+	  </div>
+	<div class="row ">
+		<div class="col-sm-4">
+			<div class="s-chart">
+				<canvas id="s-Chart" width="50" height="15"></canvas>
+			</div>
+		</div>
+	</div>
+		</div>
+</div>
+<script>
+    $(document).ready(function(){
+    var ctx = document.getElementById('barChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: {{labels|safe}},
+        datasets: [{
+            label: '# of Votes',
+            data: {{data|safe}},
+            backgroundColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+
+    });
+
+</script>
+<script>
+    $(document).ready(function(){
+    var ctx = document.getElementById('p-Chart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+        labels: {{labels|safe}},
+        datasets: [{
+            label: '# of Votes',
+            data: {{data|safe}},
+            backgroundColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+
+    });
+
+</script>
+<script>
+    $(document).ready(function(){
+    var ctx = document.getElementById('r-Chart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'radar',
+    data: {
+        labels: {{labels|safe}},
+        datasets: [{
+            label: '# of Votes',
+            data: {{data|safe}},
+            backgroundColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+
+    });
+
+</script>
+
+<script>
+    $(document).ready(function(){
+    var ctx = document.getElementById('s-Chart').getContext('2d');
+var chart = new Chart(ctx, {
+   type: 'scatter',
+   data: {
+      datasets: [{
+         data: [{
+            x: 1,
+            y: 1
+         }, {
+            x: 3,
+            y: 7
+         }, {
+            x: 6,
+            y: 5
+         }, { // add same data as the first one, to draw the closing line
+            x: 1,
+            y: 1
+         }],
+         borderColor: 'black',
+         borderWidth: 1,
+         pointBackgroundColor: ['#000', '#00bcd6', '#d300d6'],
+         pointBorderColor: ['#000', '#00bcd6', '#d300d6'],
+         pointRadius: 5,
+         pointHoverRadius: 5,
+         fill: false,
+         tension: 0,
+         showLine: true
+      }, {
+         data: [{
+            x: 3.5,
+            y: 4.5
+         }],
+         pointBackgroundColor: 'orange',
+         pointBorderColor: 'darkorange',
+         pointRadius: 10,
+         pointHoverRadius: 10
+      }]
+   },
+   options: {
+      legend: false,
+      tooltips: false,
+      scales: {
+         xAxes: [{
+            ticks: {
+               min: 0,
+               max: 10
+            },
+            gridLines: {
+               color: '#888',
+               drawOnChartArea: false
+            }
+         }],
+         yAxes: [{
+            ticks: {
+               min: 0,
+               max: 8,
+               padding: 10
+            },
+            gridLines: {
+               color: '#888',
+               drawOnChartArea: false
+            }
+         }]
+      }
+   }
+});
+
+    });
+
+</script>
+
+
+
+
+
+
+{% endblock %}

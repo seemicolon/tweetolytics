@@ -1,0 +1,73 @@
+{% extends "accountBase.html" %}
+{% block title %}Register{% endblock %}
+
+{% block head %}
+
+{% load static %}
+	<link href="{% static 'styles/accountStyle.css'%}" rel="stylesheet">
+{% endblock %}
+  {% block content %}
+
+		 <section class="Form my-5 mx-5">
+		  <div class="container">
+
+		  	<div class="row no-gutters">
+			  <div class="col-lg-5">
+					<img src="{% static 'img/login.png' %}"  class="img-fluid py-4">
+				</div>
+
+			  <div class="col-lg-7 px-5 pt-3">
+				  <h2 class="font-weight-bold py-3">Tweetolytics</h2>
+				  <h5>Sign Up to your account</h5>
+					<form method="post" action="">
+				  		{% csrf_token %}
+				  		<div class="form-row">
+							 <div class="col-lg-7">
+							  	 {{form.email}}
+							</div>
+						</div>
+						<div class="form-row">
+							 <div class="col-lg-7">
+							  	{{form.username}}
+							</div>
+						</div>
+						<div class="form-row">
+							 <div class="col-lg-7">
+							  	{{form.password1}}
+							</div>
+						</div>
+						<div class="form-row">
+							 <div class="col-lg-7">
+							    {{form.password2}}
+							</div>
+						</div>
+						 {% if form.errors%}
+							{% for field in form%}
+            					{% for error in field.errors%}
+                					{{error|escape}}
+            					{% endfor %}
+         					{% endfor %}
+         				 	{% for error in form.non_field_errors%}
+                				{{error|escape}}
+          					{% endfor %}
+						{% endif %}
+						<div class="form-row">
+							 <div class="col-lg-7">
+							  	<input type="submit" value="Register" class="btn-1 mt-3 mb-3" >
+							</div>
+						</div>
+						<p class="mb-5">Already have an account? <a href="{% url 'login' %}">Login Here</a></p>
+
+				    </form>
+
+
+
+				</div>
+			  </div>
+
+		  </div>
+
+
+
+	  </section>
+{% endblock %}

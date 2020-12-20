@@ -1,0 +1,78 @@
+{% extends "dbase.html" %}
+{% block title %}Profile{% endblock %}
+{% block head %}
+
+{% load static %}
+	<link href="{% static 'styles/profile.css'%}" rel="stylesheet">
+
+{% endblock %}
+
+{% block content %}
+<div class="container-lg">
+    <div class="table-responsive">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-8"><h2><b>Profile</b></h2></div>
+
+                </div>
+                <hr style="border-top: 2px solid #4D7CFE;"/>
+				<div class="container">
+				  <div class="row">
+					<div class="col-sm">
+					 	   <div class="row">
+							   <label >Username: </label>
+							   <p>{{info.username}}</p>
+							</div>
+						     <div class="row">
+							   <label  >Email: </label>
+								 <p>{{info.email}}</p>
+							</div>
+
+					</div>
+					<div class="col-sm">
+						<form method="post" action="">
+						{% csrf_token%}
+
+                    <div class="form-row">
+
+								 <label  class=" pr-5">Old Password</label>
+							  	{{form.old_password}}
+
+						</div>
+                    <div class="form-row">
+
+								  <label class=" pr-5">New Password</label>
+							  	{{form.new_password1}}
+
+						</div>
+                    <div class="form-row">
+
+								  <label class=" pr-4">Confirm Password</label>
+							  	{{form.new_password2}}
+
+						</div>
+                     {% if form.errors%}
+							{% for field in form%}
+            					{% for error in field.errors%}
+                					{{error|escape}}
+            					{% endfor %}
+         					{% endfor %}
+         				 	{% for error in form.non_field_errors%}
+                				{{error|escape}}
+          					{% endfor %}
+						{% endif %}
+                    <div class="form-row">
+							 <div class="col-lg-7">
+							  	<input type="submit" value="Save" class="btn-1 mt-3" >
+							</div>
+						</div>
+                </form>
+					</div>
+				  </div>
+				</div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

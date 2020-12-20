@@ -1,0 +1,23 @@
+body {
+  background-image: url("/static/img/cp.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: bottom right;
+  background-size: 300px;
+
+
+}
+ .carousel-inner img {
+      width: 100%;
+      height: 50%;
+  }
+.container{
+    width: 50%;
+	  }
+
+@media only screen and (max-width: 767px) {
+    body {
+        background-image: none;
+
+    }
+}

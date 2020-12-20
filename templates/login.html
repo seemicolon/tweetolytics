@@ -1,0 +1,57 @@
+{% extends "accountBase.html" %}
+{% block title %}Login{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://unpkg.com/bootstrap-show-password@1.2.1/dist/bootstrap-show-password.min.js"></script>
+{% load static %}
+	<link href="{% static 'styles/accountStyle.css'%}" rel="stylesheet">
+{% endblock %}
+  {% block content %}
+
+		<section class="Form my-5 mx-5">
+		  <div class="container">
+
+		  	<div class="row no-gutters">
+			  <div class="col-lg-5">
+					<img src="{% static 'img/login.png' %}" class="img-fluid py-4">
+				</div>
+
+			  <div class="col-lg-7 px-5 pt-3">
+				  <h2 class="font-weight-bold py-3">Tweetolytics</h2>
+				  <h5>Sign into your account</h5>
+					<form method="post" action="">
+						{% csrf_token%}
+
+				  		<div class="form-row">
+							 <div class="col-lg-7">
+							  	<input type="text" name="username"  placeholder="Enter Your Username" class="form-control my-2 p-4" required>
+							</div>
+						</div>
+						<div class="form-row">
+							 <div class="col-lg-7">
+							  	<input type="password" id="password" name="password" placeholder="Enter Your Password" required class="form-control  p-4"  data-toggle="password">
+							</div>
+						</div>
+						{% for message in messages %}
+	   						{{ message }}
+   						{% endfor %}
+						<div class="form-row">
+							 <div class="col-lg-7">
+							  	<input type="submit" value="Login" class="btn-1 mt-3 mb-3" >
+							</div>
+						</div>
+
+						<a href="#">Forgot Password</a>
+						<p class="mb-5">Don't have an account? <a href="{% url 'register' %}">Register Here</a></p>
+
+				    </form>
+				</div>
+			  </div>
+		  </div>
+	  </section>
+
+
+{% endblock %}

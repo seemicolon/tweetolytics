@@ -1,0 +1,38 @@
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body{
+
+  background: #F1F5F7;
+}
+.row{
+
+  background: #FFFEFE;
+  border-radius: 30px;
+}
+img{
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+.btn-1{
+
+  border: none;
+  outline: none;
+  height: 50px;
+  width: 100%;
+  color: #FFFEFE;
+  background-color: #4D7CFE;
+  font-weight: bold;
+
+}
+.btn-1:hover{
+  background: #FFFEFE;
+  border: 2px solid;
+  color: #4D7CFE;
+  font-weight: bold;
+
+
+}
