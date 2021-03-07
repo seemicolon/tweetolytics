@@ -26,10 +26,10 @@ import re
 import matplotlib.pyplot as plt
 
 plt.style.use('fivethirtyeight')
-consumerKey = "WjGKiCCQGJNnVVkzO2JKwqyWY"
-consumerSecret = "KVnljXNKG7SJe8kFDrtwKQPvbWbXMP8W8LxZyaMVsAmKyezRde"
-accessToken = "871078610936840192-qjwYEQ07OkAoNaANvcLiPQqInUpXhlG"
-accessTokenSecret = "gxXWr8ojbYs0ZonCzszz5V2TC5qZREtc2rhLbp8NdKZ9i"
+consumerKey = ""
+consumerSecret = ""
+accessToken = ""
+accessTokenSecret = ""
 
 # Create the authentication object
 authenticate = tweepy.OAuthHandler(consumerKey, consumerSecret)
