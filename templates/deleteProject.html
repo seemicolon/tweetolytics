@@ -1,0 +1,17 @@
+{% extends "accountBase.html" %}
+{% block title %}Delete{% endblock %}
+{% block head %}
+
+{% load static %}
+	<link href="{% static 'styles/project.css'%}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+
+<p>Are you sure you want to delete {{item}}</p>
+<form method="post">
+
+    <a href="{% url 'projects'%}">Cancel</a>
+    <input type="submit" name="confirm" class="btn-1 mt-3 mb-3" >
+</form>
+{% endblock %}

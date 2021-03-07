@@ -1,20 +1,284 @@
 
+.table-responsive{
+overflow-y: hidden;
+}
 
 .charts{
-
-padding-left:40px;
+padding-top:20px;
+padding-left:0px;
 
 }
+
+.container{
+width:200px;
+height:150px;
+padding-top:25px;
+align-items: center;
+margin:2px;
+
+
+}
+.positive{
+width:310px;
+height:130px;
+padding-top:10px;
+background: #FFFEFE;
+box-shadow: 0px 0px 8px 2px #ccc;
+border-radius:5px;
+z-index:1;
+text-align:center;
+}
+
+
+.hpos{
+text-align: center;
+margin-left:10px;
+margin-top:-20px;
+width:140px;
+height:60px;
+background:#4EA852;
+border-radius:5px;
+box-shadow: 0 10px 14px -2px #ccc;
+z-index:2;
+position:absolute;
+}
+.negative{
+width:310px;
+height:130px;
+padding-top:10px;
+background: #FFFEFE;
+box-shadow: 0px 0px 8px 2px #ccc;
+border-radius:5px;
+z-index:1;
+text-align:center;
+}
+
+
+.hneg{
+text-align: center;
+margin-left:10px;
+margin-top:-20px;
+width:140px;
+height:60px;
+background:#33B1EB;
+border-radius:5px;
+box-shadow: 0 10px 14px -2px #ccc;
+z-index:2;
+position:absolute;
+}
+.neutral{
+width:310px;
+height:130px;
+padding-top:10px;
+background: #FFFEFE;
+box-shadow: 0px 0px 8px 2px #ccc;
+border-radius:5px;
+z-index:1;
+text-align:center;
+}
+
+
+.hneu{
+text-align: center;
+margin-left:10px;
+margin-top:-20px;
+width:140px;
+height:60px;
+background:#FC930A;
+border-radius:5px;
+box-shadow: 0 10px 14px -2px #ccc;
+z-index:2;
+position:absolute;
+}
+
+.angry{
+width:310px;
+height:130px;
+padding-top:10px;
+background: #FFFEFE;
+box-shadow: 0px 0px 8px 2px #ccc;
+border-radius:5px;
+z-index:1;
+text-align:center;
+}
+
+
+.hang{
+text-align: center;
+margin-left:10px;
+margin-top:-20px;
+width:140px;
+height:60px;
+background:#F44336;
+border-radius:5px;
+box-shadow: 0 10px 14px -2px #ccc;
+z-index:2;
+position:absolute;
+}
+.happy{
+width:310px;
+height:130px;
+padding-top:10px;
+background: #FFFEFE;
+box-shadow: 0px 0px 8px 2px #ccc;
+border-radius:5px;
+z-index:1;
+text-align:center;
+}
+
+
+.hhappy{
+text-align: center;
+margin-left:10px;
+margin-top:-20px;
+width:140px;
+height:60px;
+background:#F9B418;
+border-radius:5px;
+box-shadow: 0 10px 14px -2px #ccc;
+z-index:2;
+position:absolute;
+}
+.tweets{
+width:310px;
+height:130px;
+padding-top:10px;
+background: #FFFEFE;
+box-shadow: 0px 0px 8px 2px #ccc;
+border-radius:5px;
+z-index:1;
+text-align:center;
+}
+
+
+.htweet{
+text-align: center;
+margin-left:10px;
+margin-top:-20px;
+width:140px;
+height:60px;
+background:#0EB6CB;
+border-radius:5px;
+box-shadow: 0 10px 14px -2px #ccc;
+z-index:2;
+position:absolute;
+}
+
+ p{
+color:#FFFEFE;
+font-size:22px;
+padding:15px;
+}
+h5{
+padding:45px;
+
+}
+
+.bchart{
+margin-top:20px;
+margin-left:20px;
+
+}
+
 .bar-chart{
-width:300px;
-height:300px;
+width:490px;
+height:400px;
+padding-top:5px;
 background: #FFFEFE;
+box-shadow: 0px 0px 8px 2px #ccc;
+border-radius:5px;
+z-index:1;
 
-box-shadow: 0px 0px 8px 2px #ccc;
 }
-.s-chart{
-width:990px;
-height:300px;
+.bsize{
+margin-top:60px;
+height:600px;
+width:480px;
+
+
+}
+
+
+.h-barChart{
+text-align: center;
+margin-left:10px;
+margin-top:-20px;
+width:470px;
+height:60px;
+background:#9229AD;
+border-radius:5px;
+box-shadow: 0 10px 14px -2px #ccc;
+z-index:2;
+position:absolute;
+}
+.pchart{
+margin-top:20px;
+margin-left:20px;
+
+
+}
+
+.pie-chart{
+width:490px;
+height:400px;
+padding-top:5px;
 background: #FFFEFE;
 box-shadow: 0px 0px 8px 2px #ccc;
+border-radius:5px;
+z-index:1;
+
+}
+
+
+.h-pieChart{
+text-align: center;
+margin-left:10px;
+margin-top:-20px;
+width:470px;
+height:60px;
+background:#F44336;
+border-radius:5px;
+box-shadow: 0 10px 14px -2px #ccc;
+z-index:2;
+position:absolute;
+}
+
+.h-sChart{
+text-align: center;
+margin-left:10px;
+margin-top:-20px;
+width:350px;
+height:60px;
+background:#33B1EB;
+border-radius:5px;
+box-shadow: 0 10px 14px -2px #ccc;
+z-index:2;
+position:absolute;
+}
+.schart{
+margin-top:20px;
+margin-left:20px;
+
+
+}
+
+.s-chart{
+width:1020px;
+height:430px;
+padding-top:5px;
+background: #FFFEFE;
+box-shadow: 0px 0px 8px 2px #ccc;
+border-radius:5px;
+z-index:1;
+
+}
+.boxsize {
+margin-top:0px;
+margin-left:-155px;
+
+}
+.boxsize img{
+width:1170px;
+height:420px;
+
 }

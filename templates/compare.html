@@ -1,0 +1,83 @@
+{% extends "dbase.html" %}
+{% block title %}Comparison{% endblock %}
+{% block head %}
+
+{% load static %}
+	<link href="{% static 'styles/compare.css'%}" rel="stylesheet">
+
+{% endblock %}
+{% block header %}
+Welcome!! Have a nice day
+{% endblock %}
+{% block content %}
+<div class="table-responsive">
+<div class="container-lg">
+	{% if projects|length == 0  %}
+	<div class="check">
+		<h5> You need at least two projects to compare</h5>
+		<div class="btns">
+		<a href="{% url 'search' %}">
+			<button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New Project</button>
+		</a>
+			</div>
+	</div>
+
+	 {% else %}
+	 <div class="h">
+		 <p>Projects Comparison</p>
+		 <button type="button" class="btn btn-light" data-toggle="modal" data-target="#exampleModal">Compare Projects</button>
+	 </div>
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Choose a project to compare</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+		<form>
+
+      <div class="modal-body">
+
+		  		 {% for p in projects%}
+					  <div class="form-check">
+						  <label class="form-check-label" for="option"> </label>
+
+						  <input type="radio" class="form-check-input" id="option" value="{{p.id}}" name="option">{{p.name}}
+
+					  </div>
+		  		{% endfor %}
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" >Close</button>
+        <button type="submit" class="btn btn-primary" >Add</button>
+
+      </div>
+</form>
+    </div>
+  </div>
+</div>
+	<div class="chart">
+				<div class="row justify-content-between">
+
+		<div class=" col-md-auto">
+				<div class="comp-chart">
+					<img src="{% static 'wordcloudoutput/image.png' %}" class="img-fluid">
+
+				</div>
+		</div>
+					<div class=" col-md-auto">
+				<div class="comp-chart">
+						<p>nnnn</p>
+				</div>
+		</div>
+				</div>
+			</div>
+ {% endif %}
+    </div>
+</div>
+{% endblock %}

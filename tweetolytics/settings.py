@@ -64,6 +64,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+
             ],
         },
     },
@@ -78,7 +80,7 @@ WSGI_APPLICATION = 'tweetolytics.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'tweetolytics',
+        'NAME': 'tweetolytic',
         'USER': 'root',
         'PASSWORD': '',
         'HOST': '127.0.0.1',

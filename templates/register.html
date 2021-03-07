@@ -21,16 +21,17 @@
 				  <h5>Sign Up to your account</h5>
 					<form method="post" action="">
 				  		{% csrf_token %}
-				  		<div class="form-row">
-							 <div class="col-lg-7">
-							  	 {{form.email}}
-							</div>
-						</div>
 						<div class="form-row">
 							 <div class="col-lg-7">
 							  	{{form.username}}
 							</div>
 						</div>
+				  		<div class="form-row">
+							 <div class="col-lg-7">
+							  	 {{form.email}}
+							</div>
+						</div>
+
 						<div class="form-row">
 							 <div class="col-lg-7">
 							  	{{form.password1}}
@@ -47,9 +48,14 @@
                 					{{error|escape}}
             					{% endfor %}
          					{% endfor %}
-         				 	{% for error in form.non_field_errors%}
-                				{{error|escape}}
-          					{% endfor %}
+						{% endif %}
+						{% if messages %}
+							{% for m in messages%}
+						<div class="alert alert-success" role="alert">
+							{{m}}
+						</div>
+
+							{% endfor %}
 						{% endif %}
 						<div class="form-row">
 							 <div class="col-lg-7">

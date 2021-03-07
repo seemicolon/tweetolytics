@@ -4,38 +4,129 @@
 
 {% load static %}
 	<link href="{% static 'styles/dashboard.css'%}" rel="stylesheet">
-
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 {% endblock %}
-
+<!--{% block name %}{{name}} {% endblock %}-->
+{% block header %}
+Keyword: {{name}}
+{% endblock %}
 {% block content %}
 
 <div class="charts">
-	<div class="container">
-	<div class="row ">
+
+	<div class="table-responsive">
+	<div class="container-lg">
+	<div class="row no-gutters my-0">
+
 		<div class=" col-sm-4">
-			<div class="bar-chart">
-				<canvas id="barChart" width="50" height="50"></canvas>
+			<div class="container">
+				<div class="hpos">
+                	<p>Positive</p>
+            	</div>
+				<div class="positive">
+					<h5>{{data.0}} Tweets Are Positive</h5>
+				</div>
 			</div>
 		</div>
 		<div class=" col-sm-4">
-			<div class="bar-chart">
-				<canvas id="p-Chart" width="50" height="50"></canvas>
+			<div class="container">
+				<div class="hneg">
+                	<p>Negative</p>
+            	</div>
+				<div class="negative">
+					<h5>{{data.1}} Tweets Are Negative</h5>
+				</div>
 			</div>
 		</div>
 		<div class=" col-sm-4">
-			<div class="bar-chart">
-				<canvas id="r-Chart" width="50" height="50"></canvas>
+			<div class="container">
+				<div class="hneu">
+                	<p>Neutral </p>
+            	</div>
+				<div class="neutral">
+					<h5>{{data.2}} Tweets Are Neutral</h5>
+				</div>
 			</div>
 		</div>
-	  </div>
-	<div class="row ">
+
+		</div>
+		<div class="row no-gutters my-0">
+
+		<div class=" col-sm-4">
+			<div class="container">
+				<div class="hang">
+                	<p>Angry</p>
+            	</div>
+				<div class="angry">
+					<h5>{{data.3}} Tweets Are Angry</h5>
+				</div>
+			</div>
+		</div>
+		<div class=" col-sm-4">
+			<div class="container">
+				<div class="hhappy">
+                	<p>Happy</p>
+            	</div>
+				<div class="happy">
+					<h5>{{data.4}} Tweets Are Happy</h5>
+				</div>
+			</div>
+		</div>
+			<div class=" col-sm-4">
+			<div class="container">
+				<div class="htweet">
+                	<p>Tweets</p>
+            	</div>
+				<div class="tweets">
+					<h5>{{total}} Are Total Tweets</h5>
+				</div>
+			</div>
+		</div>
+
+
+		</div>
+		<div class="row  no-gutters  ">
+		<div class=" col-sm-6">
+			<div class="bchart">
+				<div class="h-barChart">
+                	<p>Word Frequency By Sentiment</p>
+            	</div>
+				<div class="bar-chart">
+					<div class="bsize">
+						<canvas id="barChart" HEIGHT="200"></canvas>
+					</div>
+				</div>
+			</div>
+		</div>
+			<div class=" col-sm-2">
+			<div class="pchart">
+				<div class="h-pieChart">
+                	<p>Reviews Classification</p>
+            	</div>
+				<div class="pie-chart">
+					<div class="bsize">
+						<canvas id="p-Chart" HEIGHT="200"></canvas>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+		<div class="row no-gutters ">
 		<div class="col-sm-4">
-			<div class="s-chart">
-				<canvas id="s-Chart" width="50" height="15"></canvas>
+			<div class="schart">
+				<div class="h-sChart">
+                	<p>Word Cloud</p>
+            	</div>
+				<div class="s-chart">
+					<div class="boxsize">
+						<img style="padding-left:160px;" src="{% static 'wordcloudoutput/image.png' %}" class="img-fluid">
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
-		</div>
+</div>
+	</div>
 </div>
 <script>
     $(document).ready(function(){
@@ -45,33 +136,49 @@ var myChart = new Chart(ctx, {
     data: {
         labels: {{labels|safe}},
         datasets: [{
-            label: '# of Votes',
+            label:'Label',
+
             data: {{data|safe}},
             backgroundColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
+                'rgba(78, 168, 82, 1)',
+                'rgba(252, 147, 10,1)',
+                'rgba(51, 177, 235,1)',
+                'rgba(244, 67, 54,1)',
+                'rgba(249, 180, 24,1)'
+
             ],
             borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
+                'rgb(78, 168, 82,1)',
+                'rgba(252, 147, 10,1)',
+                'rgba(51, 177, 235,1)',
+                'rgba(244, 67, 54,1)',
+                'rgba(249, 180, 24,1)'
+
+
             ],
             borderWidth: 1
         }]
     },
     options: {
+
+    	scaleShowValues: true,
         scales: {
             yAxes: [{
                 ticks: {
-                    beginAtZero: true
+                    beginAtZero: true,
+                    autoSkip: false
                 }
+            }],
+            xAxes: [{
+            	stacked: false,
+        		beginAtZero: true,
+            	ticks: {
+            		autoSkip: false,
+
+
+            	},
+            	barThickness: 50,
+				maxBarThickness: 54,
             }]
         }
     }
@@ -84,27 +191,27 @@ var myChart = new Chart(ctx, {
     $(document).ready(function(){
     var ctx = document.getElementById('p-Chart').getContext('2d');
 var myChart = new Chart(ctx, {
-    type: 'pie',
+    type: 'doughnut',
     data: {
         labels: {{labels|safe}},
         datasets: [{
-            label: '# of Votes',
+            label: '',
             data: {{data|safe}},
             backgroundColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
+                'rgba(78, 168, 82, 1)',
+                'rgba(252, 147, 10,1)',
+                'rgba(51, 177, 235,1)',
+                'rgba(244, 67, 54,1)',
+                'rgba(249, 180, 24,1)'
+
             ],
             borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
+                'rgba(78, 168, 82, 1)',
+                'rgba(252, 147, 10,1)',
+                'rgba(51, 177, 235,1)',
+                'rgba(244, 67, 54,1)',
+                'rgba(249, 180, 24,1)'
+
             ],
             borderWidth: 1
         }]
@@ -125,31 +232,35 @@ var myChart = new Chart(ctx, {
 </script>
 <script>
     $(document).ready(function(){
-    var ctx = document.getElementById('r-Chart').getContext('2d');
-var myChart = new Chart(ctx, {
-    type: 'radar',
+    var ctx = document.getElementById('l-Chart').getContext('2d');
+	var myChart = new Chart(ctx, {
+    type: 'line',
     data: {
         labels: {{labels|safe}},
         datasets: [{
-            label: '# of Votes',
+            label: 'labels',
             data: {{data|safe}},
             backgroundColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
+
+                'rgba(78, 168, 82, 1)',
+                'rgba(252, 147, 10,1)',
+                'rgba(51, 177, 235,1)',
+                'rgba(244, 67, 54,1)',
+                'rgba(249, 180, 24,1)',
+
+
             ],
             borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
+                'rgba(78, 168, 82, 1)',
+                'rgba(252, 147, 10,1)',
+                'rgba(51, 177, 235,1)',
+                'rgba(244, 67, 54,1)',
+                'rgba(249, 180, 24,1)',
+
+
             ],
-            borderWidth: 1
+         fill: false,
+         pointRadius:8
         }]
     },
     options: {
@@ -166,7 +277,6 @@ var myChart = new Chart(ctx, {
     });
 
 </script>
-
 <script>
     $(document).ready(function(){
     var ctx = document.getElementById('s-Chart').getContext('2d');
@@ -239,10 +349,5 @@ var chart = new Chart(ctx, {
     });
 
 </script>
-
-
-
-
-
 
 {% endblock %}

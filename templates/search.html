@@ -2,24 +2,53 @@
 {% block title %}Search{% endblock %}
 
 {% block head %}
+
 {% load static %}
 	<link href="{% static 'styles/searchstyle.css'%}" rel="stylesheet">
 {% endblock %}
+
+
 {% block content%}
+
      <div class="container">
 		<h3 class="mt-5">Enter Keyword to Analyze</h3>
 	</div>
 	<div class="container">
 		<div class="row">
   			<div class="col mt-4">
-                 <form method="post" action="home">
+                <div id="pageloader">
+                    <p>Fetching tweets from twitter...</p>
+                    <div id="spinner" class="spinner-border text-primary" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
+                 <form id="form1" method="post" action="" >
                      {% csrf_token %}
-                    <input class="form-control form-control-lg" name="search_field" type="text" placeholder="Quaid Day, QuaidDay, #QuaidDay" required>
-                    <button type="submit" name="submit_b" value="submit_b" class="btn btn-primary btn-lg mt-2">Analyze</button>
+                    <input id='inn' class="form-control form-control-lg" name="search_field" minlength="4" type="text" placeholder="Quaid Day, QuaidDay, #QuaidDay" required>
+                    <button  type="submit" name="submit_b" id="button"  value="submit_b" class="btn btn-primary btn-lg mt-2">Analyze</button>
                  </form>
             </div>
-		</div>
+            <script>
+
+                $(document).ready(function(){
+                    $("#form1").on("submit", function(){
+                        $("#pageloader").fadeIn();
+
+
+                         setTimeout(function(){
+
+                       $("#pageloader").fadeOut();
+                       },15000);
+                        });
+
+
+                       });
+</script>
+</div>
+
 	</div>
+
+
 	<div class="container">
 	<h4 class="mt-5">Live Twitter Trends in Pakistan</h4>
 	<table class="table table-bordered table-striped mt-4">
